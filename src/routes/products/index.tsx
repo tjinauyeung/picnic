@@ -1,5 +1,5 @@
 import React from "react";
-import { RouteComponentProps, navigate } from "@reach/router";
+import { RouteComponentProps, navigate, NavigateOptions } from "@reach/router";
 import utils from "../../utils";
 import ProductsNotFound from "./products-not-found";
 import Product from "./product";
@@ -10,20 +10,19 @@ interface ProductsProps extends RouteComponentProps {
   products: IProduct[];
 }
 
-function isMobileDevice() {
-  return window.innerWidth < 550;
-}
-
 const Products = ({ products, location }: ProductsProps) => {
   const handleClick = productId => e => {
-    const previousLocation = utils.deepCopy(location);
-    const state = { previousLocation };
-    navigate(`/${productId}/detail`, isMobileDevice() ? {} : { state });
+    let options: NavigateOptions<{}> = {};
+    // on mobile we'll navigate to detail view without opening the dialog
+    // by sending state to the router it knows to use the dialog or go directly to the view
+    if (!utils.isMobile()) {
+      const previousLocation = utils.deepCopy(location);
+      options.state = { previousLocation };
+    }
+    navigate(`/${productId}/detail`, options);
   };
 
-  if (!products.length) {
-    return <ProductsNotFound />;
-  }
+  if (!products.length) return <ProductsNotFound />;
 
   return (
     <div className="products">

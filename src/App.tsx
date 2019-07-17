@@ -42,7 +42,7 @@ const App = () => {
           const previousLocation = location.state && location.state.previousLocation;
           return (
             <main className="main">
-              <Router location={previousLocation || location}>
+              <Router location={previousLocation || location} primary={false}>
                 <Redirect from="/" to="/list" noThrow />
                 <Products path="/list" products={filtered} />
                 <ProductDetail path="/:id/detail" />
