@@ -7,6 +7,7 @@ import ProductDetail from "./routes/product-detail";
 import Dialog from "./components/dialog";
 import Header from "./components/header";
 import SearchBar from "./components/search-bar";
+import Wrapper from "./components/wrapper";
 import { IProduct } from "./models";
 import "./App.styles.scss";
 
@@ -30,7 +31,7 @@ const App = () => {
   const navigateTo = location => e => navigate(location.pathname);
 
   return (
-    <div className="wrapper">
+    <Wrapper>
       <Header>
         <SearchBar onChange={search} />
       </Header>
@@ -53,7 +54,8 @@ const App = () => {
           );
         }}
       </Location>
-    </div>
+      <footer>https://github.com/tjinauyeung/picnic</footer>
+    </Wrapper>
   );
 };
 

@@ -1,0 +1,23 @@
+.not-found {
+  font-size: var(--font-size-m);
+  border-radius: var(--border-radius);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &__icon {
+    font-size: var(--font-size-xxxl);
+    margin: 0;
+  }
+
+  &__description {
+    font-size: var(--font-size-m);
+  }
+}

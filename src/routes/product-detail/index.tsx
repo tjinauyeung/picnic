@@ -1,11 +1,11 @@
 import React, { useEffect, useState, Fragment } from "react";
+import { Link } from "@reach/router";
 import ProductService from "../../services/product-service";
 import Price from "../../components/price";
 import Loader from "../../components/loader";
-import { Link } from "@reach/router";
+import Header from "../../components/header";
 import { ArrowBack } from "../../icons";
 import "./styles.scss";
-import Header from "../../components/header";
 
 const PRODUCT_DETAIL_DEFAULT = {
   product_id: "",

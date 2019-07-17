@@ -1,4 +1,7 @@
 .dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   pointer-events: none;
   position: fixed;
@@ -10,11 +13,27 @@
   z-index: 1;
   transition: all 300ms ease;
 
-  &.is-open {
+  &--open {
     opacity: 1;
     pointer-events: all;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    color: #fff;
+    position: absolute;
+    cursor: pointer;
+    right: 40px;
+    top: 40px;
+    font-weight: 400;
+    font-size: var(--font-size-s);
+    padding: var(--spacer-m) var(--spacer-l);
+    border-radius: 50px;
+
+    &:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+    }
   }
 }

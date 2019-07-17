@@ -1,0 +1,30 @@
+.product {
+  background: #fff;
+  border-radius: var(--border-radius);
+  min-height: 280px;
+  padding: var(--spacer-xl);
+  position: relative;
+  opacity: 0.8;
+
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 200ms ease;
+  cursor: pointer;
+
+  &:hover {
+    color: #000;
+    opacity: 1;
+  }
+
+  &__name {
+    font-size: var(--font-size-l);
+    margin: 0;
+  }
+
+  &__price {
+    position: absolute;
+    bottom: var(--spacer-xl);
+    right: var(--spacer-xl);
+  }
+}

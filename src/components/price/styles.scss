@@ -3,12 +3,12 @@
   font-weight: 700;
 
   &--euros {
-    font-size: 32px;
+    font-size: var(--font-size-xl);
     line-height: 1;
   }
 
   &--cents {
-    font-size: 18px;
+    font-size: var(--font-size-s);
     line-height: 1.2;
   }
 }

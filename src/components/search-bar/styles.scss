@@ -5,13 +5,12 @@
 
 .search-bar {
   border: none;
-  border-radius: var(--border-radius);
-  padding: var(--spacer-m);
-  vertical-align: baseline;
+  border-radius: 50px;
+  padding: var(--spacer-m) var(--spacer-l);
   max-width: 480px;
   width: 100%;
   margin: auto;
-  font-size: 16px;
+  font-size: var(--font-size-s);
   font-weight: 700;
   color: rgba(255, 255, 255, 0.5);
   transition: all 250ms ease;

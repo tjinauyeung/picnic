@@ -1,6 +1,7 @@
 import React from "react";
 import { RouteComponentProps, navigate } from "@reach/router";
 import utils from "../../utils";
+import ProductsNotFound from "./products-not-found";
 import Product from "./product";
 import { IProduct } from "../../models";
 import "./styles.scss";
@@ -21,7 +22,7 @@ const Products = ({ products, location }: ProductsProps) => {
   };
 
   if (!products.length) {
-    return <div className="products__empty">No products found. Please try different search.</div>;
+    return <ProductsNotFound />;
   }
 
   return (

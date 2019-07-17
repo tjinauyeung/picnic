@@ -5,11 +5,11 @@
   top: 0;
   background: var(--color-accent);
   display: flex;
+  height: 65px;
   padding: var(--spacer-m);
   margin-bottom: var(--spacer-m);
   box-shadow: var(--box-shadow);
   z-index: 1;
-  height: 65px;
 
   @media (max-width: 768px) {
     padding-left: 65px;
