@@ -4,6 +4,6 @@ module.exports = {
     "\\.scss$": "identity-obj-proxy"
   },
   automock: false,
-  setupFilesAfterEnv: ["<rootDir>setupJest.ts"],
-  testEnvironment: "jsdom"
+  setupFilesAfterEnv: ["<rootDir>setupJest.js"],
+  testEnvironment: "node"
 };
