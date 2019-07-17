@@ -4,7 +4,10 @@
   "description": "Picnic assignment",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "author": "Tjin Au Yeung",
   "license": "ISC",
