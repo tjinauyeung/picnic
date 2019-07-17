@@ -1,0 +1,24 @@
+:root {
+  --spacer-m: 12px;
+
+  --border-radius: 8px;
+  --loader-color: #fff;
+  --color-accent: #e50612;
+  --color-text: #222;
+  --box-shadow: 0 0 10px 0 rgba(160, 160, 160, 0.5);
+
+  --media-mobile-width: 425px;
+  --media-tablet-width: 768px;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  font-family: Nunito, sans-serif;
+  min-height: 100vh;
+  background: #f7f7f7;
+}

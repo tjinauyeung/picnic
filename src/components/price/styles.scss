@@ -1,0 +1,14 @@
+.price {
+  display: flex;
+  font-weight: 700;
+
+  &--euros {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  &--cents {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}

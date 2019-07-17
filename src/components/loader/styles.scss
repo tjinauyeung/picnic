@@ -1,0 +1,35 @@
+.loader {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin: -(30px/2) 0 0 - (30px/2);
+  animation: rotation 1s infinite linear;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-radius: 100%;
+}
+
+.loader:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -2px;
+  top: -3px;
+  height: 26px;
+  width: 28px;
+  border-top: 3px solid var(--loader-color);
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-radius: 100%;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
