@@ -1,6 +1,6 @@
 .not-found {
   font-size: var(--font-size-xl);
-  border-radius: var(--border-radius);
+  padding: var(--spacer-m);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -18,5 +18,7 @@
 
   &__text {
     font-size: var(--font-size-m);
+    line-height: 1.5;
+    text-align: center;
   }
 }

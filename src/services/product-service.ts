@@ -2,8 +2,8 @@ import RequestService from "./request-service";
 import { IProductDetail, IProduct } from "../models";
 
 const ENDPOINTS = {
-  products: () => `https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/list`,
-  product: id => `https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/${id}/detail`
+  product: id => `https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/${id}/detail`,
+  products: () => `https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/list`
 };
 
 interface ProductServiceOptions {
