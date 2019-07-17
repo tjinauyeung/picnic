@@ -1,5 +1,7 @@
 .header {
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   top: 0;
   background: var(--color-accent);
   display: flex;
@@ -7,33 +9,10 @@
   margin-bottom: var(--spacer-m);
   box-shadow: var(--box-shadow);
   z-index: 1;
+  height: 65px;
 
-  ::placeholder {
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  &__input {
-    border: none;
-    border-radius: var(--border-radius);
-    padding: var(--spacer-m);
-    max-width: 480px;
-    width: 100%;
-    margin: auto;
-    font-weight: 700;
-    color: var(--color-text);
-    transition: all 200ms ease;
-    background: rgba(255, 180, 180, 0.2);
-
-    &:hover {
-      background: rgba(255, 180, 180, 0.4);
-    }
-
-    &:focus {
-      outline: none;
-      max-width: 550px;
-      background: #fff;
-    }
+  @media (max-width: 768px) {
+    padding-left: 65px;
   }
 
   &__logo {
@@ -42,5 +21,6 @@
     left: 0;
     width: 65px;
     height: 65px;
+    z-index: 200;
   }
 }

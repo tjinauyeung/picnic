@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import ProductService from "../../services/product-service";
 import Price from "../../components/price";
 import Loader from "../../components/loader";
+import { Link } from "@reach/router";
+import { ArrowBack } from "../../icons";
 import "./styles.scss";
+import Header from "../../components/header";
 
 const PRODUCT_DETAIL_DEFAULT = {
   product_id: "",
@@ -27,12 +30,20 @@ const ProductDetail = props => {
   if (loading) return <Loader />;
 
   return (
-    <div className="product-detail">
-      <h1 className="product-detail__title">{product.name}</h1>
-      <img className="product-detail__image" src={product.image} />
-      <p className="product-detail__paragraph">{product.description}</p>
-      <Price className="product-detail__price" price={product.price} />
-    </div>
+    <Fragment>
+      <Header className="product-detail__header">
+        <Link to="/list" className="product-detail__back">
+          <ArrowBack />
+          <span>Back to product list</span>
+        </Link>
+      </Header>
+      <div className="product-detail">
+        <h1 className="product-detail__title">{product.name}</h1>
+        <img className="product-detail__image" src={product.image} />
+        <p className="product-detail__paragraph">{product.description}</p>
+        <Price className="product-detail__price" price={product.price} />
+      </div>
+    </Fragment>
   );
 };
 

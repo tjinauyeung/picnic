@@ -1,33 +1,39 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { Router, Redirect, Location, navigate } from "@reach/router";
 import ProductService from "./services/product-service";
+import SearchService from "./services/search-service";
 import Products from "./routes/products";
 import ProductDetail from "./routes/product-detail";
 import Dialog from "./components/dialog";
 import Header from "./components/header";
-import { Product } from "./models";
+import SearchBar from "./components/search-bar";
+import { IProduct } from "./models";
 import "./App.styles.scss";
 
 const App = () => {
   const productService = new ProductService();
-  const [products, setProducts] = useState<Product[]>([]);
+  const searchService = new SearchService();
+
   const [query, setQuery] = useState("");
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [filtered, setFiltered] = useState<IProduct[]>([]);
 
   useEffect(() => {
-    productService
-      .getProducts()
-      .then(filterByQuery(query))
-      .then(setProducts);
-  }, [query]);
+    productService.getProducts().then(setProducts);
+  }, []);
 
-  const filterByQuery = query => products => products.filter(matchesName(query));
-  const matchesName = query => ({ name }) => name.toLowerCase().includes(query.toLowerCase());
+  useEffect(() => {
+    searchService.searchProducts(products, query).then(setFiltered);
+  }, [query, products]);
+
   const search = e => setQuery(e.target.value);
   const navigateTo = location => e => navigate(location.pathname);
 
   return (
     <div className="wrapper">
-      <Header onSearch={search} />
+      <Header>
+        <SearchBar onChange={search} />
+      </Header>
       <Location>
         {({ location }) => {
           const previousLocation = location.state && location.state.previousLocation;
@@ -35,7 +41,7 @@ const App = () => {
             <Fragment>
               <Router location={previousLocation || location}>
                 <Redirect from="/" to="/list" noThrow />
-                <Products path="/list" products={products} />
+                <Products path="/list" products={filtered} />
                 <ProductDetail path="/:id/detail" />
               </Router>
               <Dialog isOpen={previousLocation} onClose={navigateTo(previousLocation)}>

@@ -1,4 +1,5 @@
 :root {
+  --spacer-s: 6px;
   --spacer-m: 12px;
 
   --border-radius: 8px;
@@ -21,4 +22,8 @@
   font-family: Nunito, sans-serif;
   min-height: 100vh;
   background: #f7f7f7;
+  padding-top: 120px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 50px;
 }

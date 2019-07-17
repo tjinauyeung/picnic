@@ -1,6 +1,6 @@
 .product-detail {
   background: #fff;
-  border-radius: calc(var(--border-radius) * 3);
+  border-radius: calc(var(--border-radius) * 2);
   padding: 50px;
   max-width: 480px;
   min-height: 400px;
@@ -10,7 +10,6 @@
   animation: enter 200ms forwards ease-in-out;
 
   &__title {
-    text-align: left;
     font-size: 34px;
     width: 100%;
     margin: 0;
@@ -33,6 +32,27 @@
     line-height: 1.5;
     text-align: center;
   }
+}
+
+.product-detail__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  color: #fff;
+  text-decoration: none;
+
+  @media (max-width: 768px) {
+    transform: translateX(-32.5px);
+  }
+
+  span {
+    margin-left: var(--spacer-s);
+  }
+}
+
+.dialog .product-detail__header {
+  display: none;
 }
 
 @keyframes enter {

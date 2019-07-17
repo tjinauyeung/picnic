@@ -1,5 +1,5 @@
 import RequestService from "./request-service";
-import { ProductDetail, Product } from "../models";
+import { IProductDetail, IProduct } from "../models";
 
 const ENDPOINTS = {
   products: () => `https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/list`,
@@ -15,13 +15,14 @@ class ProductService {
 
   constructor(options: ProductServiceOptions = {}) {
     this.request = options.request || new RequestService();
+    this.getProducts = this.getProducts.bind(this);
   }
 
-  getProducts(): Promise<Product[]> {
+  getProducts(): Promise<IProduct[]> {
     return this.request.get(ENDPOINTS.products()).then(data => data.products);
   }
 
-  getProduct(id: number): Promise<ProductDetail> {
+  getProduct(id: number): Promise<IProductDetail> {
     return this.request.get(ENDPOINTS.product(id));
   }
 }
