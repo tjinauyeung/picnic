@@ -1,13 +1,15 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import { Router, Redirect, Location, navigate } from "@reach/router";
 import ProductService from "./services/product-service";
 import SearchService from "./services/search-service";
 import Products from "./routes/products";
 import ProductDetail from "./routes/product-detail";
+import NotFound from "./routes/not-found";
 import Dialog from "./components/dialog";
 import Header from "./components/header";
 import SearchBar from "./components/search-bar";
 import Wrapper from "./components/wrapper";
+import Footer from "./components/footer";
 import { IProduct } from "./models";
 import "./App.styles.scss";
 
@@ -39,22 +41,23 @@ const App = () => {
         {({ location }) => {
           const previousLocation = location.state && location.state.previousLocation;
           return (
-            <Fragment>
+            <main className="main">
               <Router location={previousLocation || location}>
                 <Redirect from="/" to="/list" noThrow />
                 <Products path="/list" products={filtered} />
                 <ProductDetail path="/:id/detail" />
+                <NotFound default />
               </Router>
               <Dialog isOpen={previousLocation} onClose={navigateTo(previousLocation)}>
                 <Router location={location}>
                   <ProductDetail path="/:id/detail" />
                 </Router>
               </Dialog>
-            </Fragment>
+            </main>
           );
         }}
       </Location>
-      <footer>https://github.com/tjinauyeung/picnic</footer>
+      <Footer />
     </Wrapper>
   );
 };

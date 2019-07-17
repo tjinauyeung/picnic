@@ -42,24 +42,3 @@
     transform: translateY(0);
   }
 }
-
-.product-detail__back {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  color: #fff;
-  text-decoration: none;
-
-  @media (max-width: var(--media-tablet-width)) {
-    transform: translateX(-32.5px);
-  }
-
-  span {
-    margin-left: var(--spacer-s);
-  }
-}
-
-.dialog .product-detail__header {
-  display: none;
-}

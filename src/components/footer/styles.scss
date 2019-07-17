@@ -1,0 +1,13 @@
+.footer {
+  text-align: right;
+  padding: var(--spacer-xxl);
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      color: var(--color-text-light);
+    }
+  }
+}

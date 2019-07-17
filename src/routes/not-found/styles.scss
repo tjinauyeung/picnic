@@ -1,7 +1,6 @@
-.products-not-found {
-  font-size: var(--font-size-m);
+.not-found {
+  font-size: var(--font-size-xl);
   border-radius: var(--border-radius);
-  margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -17,7 +16,7 @@
     margin: 0;
   }
 
-  &__description {
+  &__text {
     font-size: var(--font-size-m);
   }
 }

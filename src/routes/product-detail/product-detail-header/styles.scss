@@ -1,0 +1,24 @@
+.product-detail-header {
+  padding-left: 0;
+
+  .dialog & {
+    display: none;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    color: #fff;
+    text-decoration: none;
+
+    @media (max-width: var(--media-tablet-width)) {
+      transform: translateX(-32.5px);
+    }
+
+    span {
+      margin-left: var(--spacer-s);
+    }
+  }
+}

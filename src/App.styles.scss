@@ -12,6 +12,7 @@
 
   --color-accent: #e50612;
   --color-text: #222;
+  --color-text-light: #acacac;
   --color-background: #f7f7f7;
 
   --font-size-s: 14px;
@@ -33,4 +34,8 @@
 html {
   font-family: var(--font-family);
   background: var(--color-background);
+}
+
+.main {
+  flex: 1;
 }

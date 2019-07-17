@@ -4,5 +4,6 @@
   padding-top: 120px;
   padding-left: var(--spacer-xs);
   padding-right: var(--spacer-xs);
-  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
 }
