@@ -1,35 +1,35 @@
-const DEFAULT_LOCALE = "nl-NL";
-const DEFAULT_CURRENCY = "EUR";
-const SEPERATOR = ",";
+const DEFAULT_EURO_VALUE = "0";
+const DEFAULT_CENTS_VALUE = "00";
 
-const DEFAULT_NUMBER_FORMAT_OPTIONS = {
-  minimumFractionDigits: 2,
-  style: "decimal"
+interface PriceFormatted {
+  cents: string;
+  euros: string;
+}
+
+const PriceFormatter = {
+  format(price?: number | string): PriceFormatted {
+    const val = price ? String(price) : "";
+
+    if (Number.isInteger(Number(val)) === false) {
+      throw new Error(`${val} is not an integer`);
+    }
+
+    let euros = val.slice(0, val.length - 2);
+    let cents = val.slice(-2);
+
+    if (cents.length < 2) {
+      cents = cents.padStart(2, DEFAULT_CENTS_VALUE);
+    }
+
+    if (euros.length < 1) {
+      euros = DEFAULT_EURO_VALUE;
+    }
+
+    return {
+      cents,
+      euros
+    };
+  }
 };
 
-interface PriceFormatterOptions {
-  currency?: string;
-  locale?: string;
-}
-
-class PriceFormatter {
-  formatter: Intl.NumberFormat;
-
-  constructor(options: PriceFormatterOptions = {}) {
-    const formatterOptions: any = DEFAULT_NUMBER_FORMAT_OPTIONS;
-    formatterOptions.currency = options.currency || DEFAULT_CURRENCY;
-    this.formatter = new Intl.NumberFormat(options.locale || DEFAULT_LOCALE, formatterOptions);
-  }
-
-  /**
-   * receives price and returns and array with two values
-   * example:
-   * getPrice(500) => [5, 00]
-   * getPrice(1622) => [16, 22]
-   * @returns value[0] is euro
-   * @returns value[1] is cents
-   */
-  getPrice(price: number): string[] {
-    return this.formatter.format(Number(price / 100)).split(SEPERATOR);
-  }
-}
+export default PriceFormatter;
