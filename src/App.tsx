@@ -7,7 +7,7 @@ import ProductDetail from "./routes/product-detail";
 import NotFound from "./routes/not-found";
 import Dialog from "./components/dialog";
 import Header from "./components/header";
-import SearchBar from "./components/search-bar";
+import Search from "./components/search";
 import Wrapper from "./components/wrapper";
 import Footer from "./components/footer";
 import { IProduct } from "./models";
@@ -35,7 +35,7 @@ const App = () => {
   return (
     <Wrapper>
       <Header>
-        <SearchBar onChange={search} />
+        <Search onChange={search} />
       </Header>
       <Location>
         {({ location }) => {
